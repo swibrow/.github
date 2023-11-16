@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+    inputs:
+      path:
+        description: 'Path to file to echo'
+        type: string
+        required: false
+        default: 'README.md'
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          cat ${{ inputs.path }}
